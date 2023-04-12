@@ -1,0 +1,53 @@
+@startuml erd diagram
+
+
+skinparam Style StrictUML
+skinparam LineType ortho
+skinparam monochrome true
+
+
+class Staff {
+   * Staff_ID <<PK>>
+--
+   * First_Name
+   * Last_Name
+   * Email_Address
+   * Department
+}
+
+class Student {
+   * Student_ID <<PK>>
+--
+   * First_Name
+   * Last_Name
+   * Email_Address
+   *Degree
+   *Skills
+   Interests
+}
+
+class User{
+   * Staff
+   * Student
+}
+
+class Research_Project {
+   * Project_ID <<PK>>
+--
+   * Staff_ID
+   * Description
+   * Department
+   *requiredSkills
+   Students_Interested
+   Scholarships
+}
+
+
+User ||--o{ Staff
+User ||--o{ Student
+Staff ||--o{ Research_Project
+Student }o--o{ Research_Project
+
+
+@enduml
+
